@@ -2,6 +2,7 @@ package com.evyatark.controller;
 
 import com.evyatark.Repository.ArticleDetailsStorage;
 import com.evyatark.entity.ArticleDetails;
+import com.evyatark.service.ReadStartPages;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.reactivestreams.Publisher;
 
@@ -23,8 +24,22 @@ public class ArticleDetailsResource {
     @Inject
     ArticleDetailsStorage articleDetailsStorage;
 
+    @Inject
+    ReadStartPages readStartPages;
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
+    @Path("/send")
+    public String sendUrls() {
+        System.out.println("hello! sending urls...");    // only for debugging
+
+        readStartPages.startFromPage("sample-url-");
+        String result = "sent. call /count to see how many in storage";
+        return result;
+    }
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path("/count")
     public String all() {
         System.out.println("hello! counting articleDetails...");    // only for debugging
         long count = articleDetailsStorage.count();
