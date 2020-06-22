@@ -1,0 +1,27 @@
+package org.acme.amqp;
+
+import javax.enterprise.context.ApplicationScoped;
+
+import org.eclipse.microprofile.reactive.messaging.Incoming;
+import org.eclipse.microprofile.reactive.messaging.Outgoing;
+
+import io.smallrye.reactive.messaging.annotations.Broadcast;
+
+/**
+ * A bean consuming data from the "generated-price" channel ("queue") and applying some conversion.
+ * The result is pushed to the "my-data-stream" stream which is an in-memory stream.
+ */
+@ApplicationScoped
+public class PriceConverter {
+
+    private static final double CONVERSION_RATE = 1.0;  // 0.88;
+
+    @Incoming("generated-price")
+    @Outgoing("my-data-stream")
+    @Broadcast
+    public double process(int priceInUsd) {
+        System.out.println("converting " + priceInUsd);     // only for debugging
+        return priceInUsd * CONVERSION_RATE;
+    }
+
+}
