@@ -1,4 +1,4 @@
-package org.acme.amqp;
+package com.evyatark.service;
 
 import javax.enterprise.context.ApplicationScoped;
 

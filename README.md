@@ -1,7 +1,12 @@
-Quarkus AMQP 1.0 Quickstart
-============================
+Quarkus NewsStand application
+=============================
 
-This project illustrates how you can interact with AMQP 1.0 (in this quickstart no Broker is needed!) using MicroProfile Reactive Messaging.
+This project is an application that performs web-scraping of news-sites and displays a simpler view of the articles.
+
+This is a Quarkus application using MicroProfile Reactive Messaging, originally taken from AMQP-Quickstart example of Quarkus.
+
+The original quickstart was changed so that all "queues" are internal (in-memory), and no Broker is needed!
+ .
 
 ## AMQP Broker
 
@@ -10,13 +15,46 @@ All "queues" are internal "in-memory" queues (using Vert.x Event Bus)
 
 ## Start the application
 
-The application can be started using: 
+This application uses Java 11.
+If you run with Java 8, you will receive build errors.
+
+To make sure you are using Java 11, do:
+
+```bash
+
+evyatar@evyatar-xps:~/work/quarkus/news-quarkus$ sudo update-alternatives --config java
+[sudo] password for evyatar: 
+There are 3 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                            Priority   Status
+------------------------------------------------------------
+  0            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1111      auto mode
+* 1            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1111      manual mode
+  2            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      manual mode
+  3            /usr/lib/jvm/java-8-oracle/jre/bin/java          1081      manual mode
+```
+and make sure you select a Java 11.
+
+In addition, set JAVA_HOME to point to the same JDK:
+
+```bash
+evyatar@evyatar-xps:~/work/quarkus/news-quarkus$ env | grep JAVA
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+evyatar@evyatar-xps:~/work/quarkus/news-quarkus$ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+evyatar@evyatar-xps:~/work/quarkus/news-quarkus$ env | grep JAVA
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+evyatar@evyatar-xps:~/work/quarkus/news-quarkus$
+```
+
+The application can be started (from a terminal) using: 
 
 ```bash
 mvn quarkus:dev
 ```  
 
-Then, open your browser to `http://localhost:8080/prices.html`, and you should see a fluctuating price.
+Then, open your browser to http://localhost:8080/prices.html, and you should see a fluctuating price.
+
+As a simpler test, the endpoint (GET) http://localhost:8080/prices returns "hello"
 
 ## Anatomy
 

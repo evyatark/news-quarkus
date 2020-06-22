@@ -1,4 +1,4 @@
-package org.acme.amqp;
+package com.evyatark.controller;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

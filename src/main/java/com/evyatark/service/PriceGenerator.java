@@ -1,4 +1,4 @@
-package org.acme.amqp;
+package com.evyatark.service;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;

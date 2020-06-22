@@ -1,5 +1,6 @@
 # A docker compose file to start an Artemis AMQP broker
 # more details on https://github.com/vromero/activemq-artemis-docker.
+# Note that this is currently NOT NEEDED!!
 version: '2'
 
 services:
