@@ -15,6 +15,8 @@ public class ReadStartPages {
     @Inject
     EventBus bus;
 
+    @Inject
+    FlaskClientService flaskClientService;
 
     //List<String> urls = scrapeStartPage("abc");
 
@@ -44,6 +46,10 @@ public class ReadStartPages {
 
     // temporary implementation
     private List<String> scrapeStartPage(String url) {
-        return Arrays.asList(url + "1", url + "2", url + "3");
+        //return Arrays.asList(url + "1", url + "2", url + "3");
+        return flaskClientService.startPage();  // calls rest endpoint in the Flask (Python) web server
     }
 }
+
+
+

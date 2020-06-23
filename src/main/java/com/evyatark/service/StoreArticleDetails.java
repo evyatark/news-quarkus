@@ -33,5 +33,7 @@ public class StoreArticleDetails {
             return Flowable.fromIterable(urls);
         }
     which happens automatically (immediately)
+
+    see https://dzone.com/articles/reactive-messaging-examples-for-quarkus-1 that reports the same issue!
      */
 }

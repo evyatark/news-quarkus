@@ -12,6 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 //import io.smallrye.reactive.messaging.annotations.Channel;
 
@@ -37,6 +38,7 @@ public class ArticleDetailsResource {
         String result = "sent. call /count to see how many in storage";
         return result;
     }
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/count")
@@ -44,6 +46,16 @@ public class ArticleDetailsResource {
         System.out.println("hello! counting articleDetails...");    // only for debugging
         long count = articleDetailsStorage.count();
         String result = "count=" + count;
+        return result;
+    }
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path("/display")
+    public String displayAll() {
+        System.out.println("hello! displaying articleDetails...");    // only for debugging
+        List<ArticleDetails> all = articleDetailsStorage.findAll();
+        String result = "all=" + all;
         return result;
     }
 

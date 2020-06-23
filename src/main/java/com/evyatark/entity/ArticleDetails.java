@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class ArticleDetails {
     public String id;
+    public String siteId;
     public String createdAt;
     public String updatedAt;
     public String site;

@@ -33,6 +33,12 @@ public class InMemoryArticleDetailsStorage implements ArticleDetailsStorage {
     }
 
     @Override
+    public List<ArticleDetails> findAll() {
+        // TODO clone instead
+        return storage.subList(0, storage.size());
+    }
+
+    @Override
     public ArticleDetails getById(String id) {
         if (Utils.isEmpty(id)) {
             return null;
