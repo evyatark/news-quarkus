@@ -18,8 +18,6 @@ public class ReadStartPages {
     @Inject
     FlaskClientService flaskClientService;
 
-    //List<String> urls = scrapeStartPage("abc");
-
     public void startFromPage(String url) {
         System.out.println("startFromPage, url=" + url);
         List<String> urls = scrapeStartPage(url);
@@ -41,7 +39,6 @@ public class ReadStartPages {
             bus.sendAndForget("generated-urls", url);
             System.out.println("sent");
         });
-        //bus.sendAndForget("generated-urls", urls.get(0));
     }
 
     // temporary implementation

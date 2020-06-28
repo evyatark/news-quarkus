@@ -5,7 +5,7 @@ import com.evyatark.util.Utils;
 import java.util.Objects;
 
 public class ArticleDetails {
-    public String id;
+    public String iid;
     public String siteId;
     public String createdAt;
     public String updatedAt;
@@ -26,7 +26,7 @@ public class ArticleDetails {
 
 
     public ArticleDetails() {
-        this.id = Utils.createUUID();
+        //this.iid = Utils.createUUID();
     }
 
 
@@ -35,7 +35,7 @@ public class ArticleDetails {
         if (this == o) return true;
         if (!(o instanceof ArticleDetails)) return false;
         ArticleDetails that = (ArticleDetails) o;
-        return Objects.equals(id, that.id) &&
+        return Objects.equals(iid, that.iid) &&
                 Objects.equals(createdAt, that.createdAt) &&
                 Objects.equals(updatedAt, that.updatedAt) &&
                 Objects.equals(site, that.site) &&
@@ -49,13 +49,13 @@ public class ArticleDetails {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, createdAt, updatedAt, site, author, header, subHeader, url, originalUrl, type);
+        return Objects.hash(iid, createdAt, updatedAt, site, author, header, subHeader, url, originalUrl, type);
     }
 
     @Override
     public String toString() {
         return "ArticleDetails{" +
-                "id='" + id + '\'' +
+                "iid='" + iid + '\'' +
                 ", createdAt='" + createdAt + '\'' +
                 ", updatedAt='" + updatedAt + '\'' +
                 ", site='" + site + '\'' +

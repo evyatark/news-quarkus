@@ -35,7 +35,7 @@ public class InMemoryArticleDetailsStorage implements ArticleDetailsStorage {
     @Override
     public List<ArticleDetails> findAll() {
         // TODO clone instead
-        return storage.subList(0, storage.size());
+        return storage;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class InMemoryArticleDetailsStorage implements ArticleDetailsStorage {
             return null;
         }
         if ((storage != null) && (!storage.isEmpty())) {
-            ArticleDetails result = storage.stream().filter(ad -> ad.id.equals(id)).findFirst().orElse(null);
+            ArticleDetails result = storage.stream().filter(ad -> ad.iid.equals(id)).findFirst().orElse(null);
             return result;
         }
         return null;
@@ -52,6 +52,7 @@ public class InMemoryArticleDetailsStorage implements ArticleDetailsStorage {
 
     @Override
     public ArticleDetails getByOriginalURL(String originalUrl) {
+        System.out.println(originalUrl);
         if (Utils.isEmpty(originalUrl)) {
             return null;
         }

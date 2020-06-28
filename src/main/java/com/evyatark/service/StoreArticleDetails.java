@@ -17,7 +17,7 @@ public class StoreArticleDetails {
     //@Incoming("article-details-stream")
     @ConsumeEvent("article-details-stream")
     public  boolean storeArticleDetails(ArticleDetails articleDetails) {
-        System.out.println("storing " + articleDetails.url);     // only for debugging
+        System.out.println("storing " + articleDetails);     // only for debugging
         boolean result = adStorage.add(articleDetails);
         return result;
     }
