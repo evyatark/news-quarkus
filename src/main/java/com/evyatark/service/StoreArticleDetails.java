@@ -1,9 +1,8 @@
 package com.evyatark.service;
 
 import com.evyatark.Repository.ArticleDetailsStorage;
-import com.evyatark.entity.ArticleDetails;
+import com.evyatark.entity.ArticleDetailsIm;
 import io.quarkus.vertx.ConsumeEvent;
-import org.eclipse.microprofile.reactive.messaging.Incoming;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -16,7 +15,7 @@ public class StoreArticleDetails {
 
     //@Incoming("article-details-stream")
     @ConsumeEvent("article-details-stream")
-    public  boolean storeArticleDetails(ArticleDetails articleDetails) {
+    public  boolean storeArticleDetails(ArticleDetailsIm articleDetails) {
         System.out.println("storing " + articleDetails);     // only for debugging
         boolean result = adStorage.add(articleDetails);
         return result;

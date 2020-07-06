@@ -3,15 +3,10 @@ package com.evyatark.service;
 import com.evyatark.entity.ArticleDetails;
 import com.evyatark.util.Utils;
 import io.quarkus.vertx.ConsumeEvent;
-import io.smallrye.reactive.messaging.annotations.Broadcast;
 import io.vertx.mutiny.core.eventbus.EventBus;
-import org.eclipse.microprofile.reactive.messaging.Incoming;
-import org.eclipse.microprofile.reactive.messaging.Outgoing;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @ApplicationScoped
 public class ArticlesScraper {

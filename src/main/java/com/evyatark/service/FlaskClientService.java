@@ -1,6 +1,7 @@
 package com.evyatark.service;
 
 import com.evyatark.entity.ArticleDetails;
+import com.evyatark.entity.ArticleDetailsIm;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.enterprise.context.ApplicationScoped;

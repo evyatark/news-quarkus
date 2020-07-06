@@ -14,14 +14,14 @@ public class Article {
         this.id = id;
     }
 
-    public Article(String id, ArticleDetails details, ArticleContent content) {
+    public Article(String id, ArticleDetailsIm details, ArticleContent content) {
         this(id);
         this.details = details;
         this.content = content;
     }
 
     public String id;
-    public ArticleDetails details;
+    public ArticleDetailsIm details;
     public ArticleContent content;
 
     @Override

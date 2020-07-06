@@ -52,21 +52,19 @@ The application can be started (from a terminal) using:
 mvn quarkus:dev
 ```  
 
-Then, open your browser to http://localhost:8080/prices.html, and you should see a fluctuating price.
+Then, open your browser to http://localhost:8080/article/content/count, and you should see the number of articles in the database.
 
-As a simpler test, the endpoint (GET) http://localhost:8080/prices returns "hello"
 
 ## Anatomy
 
-In addition to the `prices.html` page, the application is composed by 3 components:
-
-* `PriceGenerator` - a bean generating random price. They are sent to an internal channel.
-* `PriceConverter` - on the consuming side, the `PriceConverter` receives the message from the channel and convert the price.
-The result is sent to an in-memory stream of data
-* `PriceResource`  - the `PriceResource` retrieves the in-memory stream of data in which the converted prices are sent and send these prices to the browser using Server-Sent Events.
-
-The interaction with "queues" is managed by MicroProfile Reactive Messaging.
-The configuration is located in the application configuration.
-(in the configuration, I have removed definition of AMQP Broker!)
-
 In this example - do NOT run any Broker using docker-compose - it is not needed, and will not be used anyway!!
+We run a PostgreSQL database in docker (not yet reflected in docker-compose.yaml file)
+
+### REST endpoints:
+[Count](http://localhost:8080/article/content/count)
+
+[Start](http://localhost:8080/article/details/send) - starts a web-scraping session
+
+[Read an Article from Haaretz web site] http://localhost:8080/article/content/read/haaretz/{siteId} 
+
+For an article that already exists in our database, This invokes the Python service that strips ads from article content.

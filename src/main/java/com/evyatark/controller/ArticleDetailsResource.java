@@ -4,18 +4,17 @@ import com.evyatark.Repository.ArticleDetailsStorage;
 import com.evyatark.entity.ArticleDetails;
 import com.evyatark.service.ArticlesScraper;
 import com.evyatark.service.ReadStartPages;
-import org.eclipse.microprofile.reactive.messaging.Channel;
-import org.reactivestreams.Publisher;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
 
 //import io.smallrye.reactive.messaging.annotations.Channel;
 
 /**
  * A simple resource retrieving the "in-memory" "my-data-stream" and sending the items to a server sent event.
+ *
+ * for this to actually run, you need to start the Flask app (~/work/quarkus/flask/news-flask
  */
 @Path("/article/details")
 public class ArticleDetailsResource {

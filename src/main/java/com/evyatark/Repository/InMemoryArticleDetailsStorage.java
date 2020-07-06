@@ -3,11 +3,11 @@ package com.evyatark.Repository;
 import com.evyatark.entity.ArticleDetails;
 import com.evyatark.util.Utils;
 
-import javax.enterprise.context.ApplicationScoped;
 import java.util.ArrayList;
 import java.util.List;
 
-@ApplicationScoped
+//@ApplicationScoped (commented because otherwise 2 beans implement ArticleDetailsStorage
+// and for some unknown reason quarkus can't find the @Default one
 public class InMemoryArticleDetailsStorage implements ArticleDetailsStorage {
 
     private static List<ArticleDetails> storage = new ArrayList<>();
